@@ -1,13 +1,25 @@
-[gd_scene load_steps=3 format=3 uid="uid://2y1pma657yky"]
+[gd_scene load_steps=7 format=3 uid="uid://2y1pma657yky"]
 
 [ext_resource type="Script" uid="uid://dx87dm5qwum7x" path="res://server/server.gd" id="1_pcfvm"]
 [ext_resource type="PackedScene" uid="uid://cbdjw714no2m6" path="res://server/network/handlers/ping/ping.tscn" id="2_0wvpq"]
+[ext_resource type="PackedScene" uid="uid://3q8qpti4qjq7" path="res://server/modules/client/client.tscn" id="2_t43u5"]
+[ext_resource type="PackedScene" uid="uid://rdm6ecg1r0xn" path="res://server/modules/account/account.tscn" id="3_87v45"]
+[ext_resource type="PackedScene" uid="uid://d3jdjfex7o3dl" path="res://server/modules/actor/actor.tscn" id="4_it51r"]
+[ext_resource type="PackedScene" uid="uid://hn8lfo4xbik7" path="res://server/modules/map/map.tscn" id="5_c0gbm"]
 
 [node name="Server" type="Node2D"]
 script = ExtResource("1_pcfvm")
 
 [node name="Modules" type="Node" parent="."]
 unique_name_in_owner = true
+
+[node name="Client" parent="Modules" instance=ExtResource("2_t43u5")]
+
+[node name="Account" parent="Modules" instance=ExtResource("3_87v45")]
+
+[node name="Actor" parent="Modules" instance=ExtResource("4_it51r")]
+
+[node name="Map" parent="Modules" instance=ExtResource("5_c0gbm")]
 
 [node name="Handlers" type="Node" parent="."]
 unique_name_in_owner = true
