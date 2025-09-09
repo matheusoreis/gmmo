@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://2y1pma657yky"]
+
+[ext_resource type="Script" uid="uid://dx87dm5qwum7x" path="res://server/server.gd" id="1_pcfvm"]
+[ext_resource type="PackedScene" uid="uid://cbdjw714no2m6" path="res://server/network/handlers/ping/ping.tscn" id="2_0wvpq"]
+
+[node name="Server" type="Node2D"]
+script = ExtResource("1_pcfvm")
+
+[node name="Modules" type="Node" parent="."]
+unique_name_in_owner = true
+
+[node name="Handlers" type="Node" parent="."]
+unique_name_in_owner = true
+
+[node name="Ping" parent="Handlers" instance=ExtResource("2_0wvpq")]

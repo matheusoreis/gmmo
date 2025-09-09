@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c82b213k6h3kk"]
+
+[ext_resource type="Script" uid="uid://tj1anft0ucxg" path="res://client/network/handlers/ping/ping.gd" id="1_5nrlg"]
+
+[node name="Ping" type="Node"]
+script = ExtResource("1_5nrlg")
