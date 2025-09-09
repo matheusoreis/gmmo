@@ -7,8 +7,12 @@
 [ext_resource type="PackedScene" uid="uid://d3jdjfex7o3dl" path="res://server/modules/actor/actor.tscn" id="4_it51r"]
 [ext_resource type="PackedScene" uid="uid://hn8lfo4xbik7" path="res://server/modules/map/map.tscn" id="5_c0gbm"]
 
-[node name="Server" type="Node2D"]
+[node name="Server" type="Node" node_paths=PackedStringArray("client_module", "account_module", "actor_module", "map_module")]
 script = ExtResource("1_pcfvm")
+client_module = NodePath("Modules/Client")
+account_module = NodePath("Modules/Account")
+actor_module = NodePath("Modules/Actor")
+map_module = NodePath("Modules/Map")
 
 [node name="Modules" type="Node" parent="."]
 unique_name_in_owner = true

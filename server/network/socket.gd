@@ -20,7 +20,7 @@ func start_server(port: int, max_clients: int = 32) -> Error:
 	return OK
 
 
-func poll() -> void:
+func process() -> void:
 	if _host == null:
 		return
 
@@ -39,7 +39,7 @@ func poll() -> void:
 			print("[SERVER] Erro de rede no servidor")
 
 
-func register_packet_handlers(handlers: Array) -> void:
+func register_handlers(handlers: Array) -> void:
 	for info in handlers:
 		var packet_id: int = info[0]
 		var callable: Callable = info[1] as Callable
