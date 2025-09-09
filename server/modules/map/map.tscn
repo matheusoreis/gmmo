@@ -1,3 +1,6 @@
-[gd_scene format=3 uid="uid://hn8lfo4xbik7"]
+[gd_scene load_steps=2 format=3 uid="uid://hn8lfo4xbik7"]
+
+[ext_resource type="Script" uid="uid://w4qj3tpfaoai" path="res://server/modules/map/map.gd" id="1_856gp"]
 
 [node name="Map" type="Node"]
+script = ExtResource("1_856gp")

@@ -1,3 +1,6 @@
-[gd_scene format=3 uid="uid://rdm6ecg1r0xn"]
+[gd_scene load_steps=2 format=3 uid="uid://rdm6ecg1r0xn"]
+
+[ext_resource type="Script" uid="uid://57u1c1utyf8" path="res://server/modules/account/account.gd" id="1_hmycg"]
 
 [node name="Account" type="Node"]
+script = ExtResource("1_hmycg")
