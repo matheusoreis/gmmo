@@ -124,4 +124,4 @@ func _handle_packet(peer: ENetPacketPeer) -> void:
 		print("[CLIENT] Handler inválido para pacote %d" % packet_id)
 		return
 
-	handler.call(packet_id, args)
+	handler.call(args)

@@ -5,8 +5,10 @@ extends Node
 signal client_connected(peer: ENetPacketPeer)
 signal client_disconnected(peer: ENetPacketPeer)
 
+
 var _host: ENetConnection
 var _handlers: Dictionary = {}
+var _peers: Array[ENetPacketPeer] = []
 
 
 func start_server(port: int, max_clients: int = 32) -> Error:
@@ -48,10 +50,12 @@ func register_handlers(handlers: Array) -> void:
 
 
 func _handle_connect(peer: ENetPacketPeer) -> void:
+	_peers.append(peer)
 	client_connected.emit(peer)
 
 
 func _handle_disconnect(peer: ENetPacketPeer) -> void:
+	_peers.erase(peer)
 	client_disconnected.emit(peer)
 
 
@@ -74,6 +78,7 @@ func _handle_packet(peer: ENetPacketPeer) -> void:
 	if not result.has("id"):
 		print("[SERVER] Pacote sem ID de peer %s" % [str(peer)])
 		return
+
 	var packet_id: int = int(result["id"])
 	if packet_id < 0:
 		print("[SERVER] Pacote com ID inválido de peer %s" % [str(peer)])
@@ -82,6 +87,7 @@ func _handle_packet(peer: ENetPacketPeer) -> void:
 	if not result.has("args"):
 		print("[SERVER] Pacote sem argumentos de peer %s" % [str(peer)])
 		return
+
 	var args: Variant = result["args"]
 	if typeof(args) != TYPE_DICTIONARY:
 		print("[SERVER] Pacote com argumentos inválidos de peer %s" % [str(peer)])
@@ -97,3 +103,33 @@ func _handle_packet(peer: ENetPacketPeer) -> void:
 		return
 
 	handler.call(peer, args)
+
+
+func _send(filter: Callable, packet: Dictionary) -> void:
+	var json := JSON.stringify(packet)
+	if json.is_empty():
+		return
+
+	for peer in _peers:
+		if not filter.call(peer):
+			continue
+		if peer.get_state() != ENetPacketPeer.STATE_CONNECTED:
+			continue
+
+		peer.send(0, json.to_utf8_buffer(), ENetPacketPeer.FLAG_RELIABLE)
+
+
+func send_to(peer: ENetPacketPeer, packet: Dictionary) -> void:
+	_send(func(p): return p == peer, packet)
+
+
+func send_to_all(packet: Dictionary) -> void:
+	_send(func(_p): return true, packet)
+
+
+func send_to_all_but(exclude: ENetPacketPeer, packet: Dictionary) -> void:
+	_send(func(p): return p != exclude, packet)
+
+
+func send_to_list(peers: Array[ENetPacketPeer], packet: Dictionary) -> void:
+	_send(func(p): return peers.has(p), packet)

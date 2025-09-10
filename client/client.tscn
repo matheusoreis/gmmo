@@ -9,4 +9,20 @@ script = ExtResource("1_6t3qf")
 [node name="Handlers" type="Node" parent="."]
 unique_name_in_owner = true
 
-[node name="Ping" parent="Handlers" instance=ExtResource("2_gdxsl")]
+[node name="Ping" parent="Handlers" node_paths=PackedStringArray("client") instance=ExtResource("2_gdxsl")]
+client = NodePath("../..")
+
+[node name="Manu" type="CanvasLayer" parent="."]
+
+[node name="Center" type="CenterContainer" parent="Manu"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="Manu/Center"]
+layout_mode = 2
+text = "Ping"
+
+[connection signal="pressed" from="Manu/Center/Button" to="." method="_on_button_pressed"]

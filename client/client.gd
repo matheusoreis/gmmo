@@ -40,3 +40,21 @@ func register_handlers(handlers: Array) -> void:
 		return
 
 	client.register_handlers(handlers)
+
+
+func send(packet_id: int, args: Dictionary, channel: int = 0) -> void:
+	if not client:
+		return
+
+	client.send(packet_id, args, channel)
+
+
+func disconnect_from_server() -> void:
+	if not client:
+		return
+
+	client.disconnect_from_server()
+
+
+func _on_button_pressed() -> void:
+	send(Packets.PING, {})
