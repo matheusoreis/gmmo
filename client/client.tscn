@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dpklkm3laqfd7" path="res://client/client.gd" id="1_6t3qf"]
 [ext_resource type="PackedScene" uid="uid://c82b213k6h3kk" path="res://client/network/handlers/ping/ping.tscn" id="2_gdxsl"]
 
-[node name="Client" type="Node2D"]
+[node name="Client" type="Node"]
 script = ExtResource("1_6t3qf")
 
 [node name="Handlers" type="Node" parent="."]

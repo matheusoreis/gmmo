@@ -1,4 +1,16 @@
-[gd_scene format=3 uid="uid://bw8p1v3x6am5f"]
+[gd_scene load_steps=2 format=3 uid="uid://bw8p1v3x6am5f"]
+
+[sub_resource type="GDScript" id="GDScript_iavml"]
+script/source = "extends Control
+
+
+func _on_server_pressed() -> void:
+	get_tree().change_scene_to_file(\"res://server/server.tscn\")
+
+
+func _on_client_pressed() -> void:
+	get_tree().change_scene_to_file(\"res://client/client.tscn\")
+"
 
 [node name="Boot" type="Control"]
 layout_mode = 3
@@ -7,3 +19,26 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = SubResource("GDScript_iavml")
+
+[node name="Center" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="V1" type="VBoxContainer" parent="Center"]
+layout_mode = 2
+
+[node name="Server" type="Button" parent="Center/V1"]
+layout_mode = 2
+text = "Server"
+
+[node name="Client" type="Button" parent="Center/V1"]
+layout_mode = 2
+text = "Client"
+
+[connection signal="pressed" from="Center/V1/Server" to="." method="_on_server_pressed"]
+[connection signal="pressed" from="Center/V1/Client" to="." method="_on_client_pressed"]
