@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b81cc6y7lw4ut"]
+
+[ext_resource type="Script" uid="uid://7vy74nesv7t8" path="res://client/network/handlers/sign_in/sign_in.gd" id="1_q20uf"]
+
+[node name="SignIn" type="Node"]
+script = ExtResource("1_q20uf")

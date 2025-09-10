@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c0u1u3bdff1df"]
+
+[ext_resource type="Script" uid="uid://cccmm4px3hrwv" path="res://server/network/handlers/sign_up/sign_up.gd" id="1_lgnuc"]
+
+[node name="SignUp" type="Node"]
+script = ExtResource("1_lgnuc")

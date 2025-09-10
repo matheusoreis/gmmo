@@ -14,4 +14,7 @@ func _enter_tree() -> void:
 
 
 func _handle_ping(peer: ENetPacketPeer, _data: Dictionary) -> void:
-	print("Recebendo ping de cliente %d!" % peer.get_instance_id())
+	server.send_to(peer, {
+		"id": Packets.PING,
+		"args": {}
+	})

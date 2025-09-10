@@ -56,5 +56,20 @@ func disconnect_from_server() -> void:
 	client.disconnect_from_server()
 
 
-func _on_button_pressed() -> void:
+func _on_ping_pressed() -> void:
 	send(Packets.PING, {})
+
+
+func _on_sign_in_pressed() -> void:
+	send(Packets.SIGN_IN, {
+		"username": "matheus",
+		"password": "matheus"
+	})
+
+
+func _on_sign_up_pressed() -> void:
+	send(Packets.SIGN_UP, {
+		"username": "matheus",
+		"password": "matheus",
+		"re_password": "matheus"
+	})

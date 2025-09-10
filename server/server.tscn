@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://2y1pma657yky"]
+[gd_scene load_steps=8 format=3 uid="uid://2y1pma657yky"]
 
 [ext_resource type="Script" uid="uid://dx87dm5qwum7x" path="res://server/server.gd" id="1_pcfvm"]
 [ext_resource type="PackedScene" uid="uid://cbdjw714no2m6" path="res://server/network/handlers/ping/ping.tscn" id="2_0wvpq"]
 [ext_resource type="PackedScene" uid="uid://rdm6ecg1r0xn" path="res://server/modules/account/account.tscn" id="3_87v45"]
 [ext_resource type="PackedScene" uid="uid://d3jdjfex7o3dl" path="res://server/modules/actor/actor.tscn" id="4_it51r"]
 [ext_resource type="PackedScene" uid="uid://hn8lfo4xbik7" path="res://server/modules/map/map.tscn" id="5_c0gbm"]
+[ext_resource type="PackedScene" uid="uid://bm2xn0mitymrk" path="res://server/network/handlers/sign_in/sign_in.tscn" id="6_87v45"]
+[ext_resource type="PackedScene" uid="uid://c0u1u3bdff1df" path="res://server/network/handlers/sign_up/sign_up.tscn" id="7_it51r"]
 
 [node name="Server" type="Node"]
 script = ExtResource("1_pcfvm")
@@ -22,4 +24,10 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 
 [node name="Ping" parent="Handlers" node_paths=PackedStringArray("server") instance=ExtResource("2_0wvpq")]
+server = NodePath("../..")
+
+[node name="SignIn" parent="Handlers" node_paths=PackedStringArray("server") instance=ExtResource("6_87v45")]
+server = NodePath("../..")
+
+[node name="SignUp" parent="Handlers" node_paths=PackedStringArray("server") instance=ExtResource("7_it51r")]
 server = NodePath("../..")
