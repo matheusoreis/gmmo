@@ -6,6 +6,10 @@ extends Node
 @export var port: int = 7001
 @export var max_clients: int = 100
 
+@export_group("Módulos")
+@export var account_module: AccountModule
+@export var actor_module: ActorModule
+@export var map_module: MapModule
 
 var server: ENetServer
 
@@ -40,6 +44,8 @@ func _on_client_connected(peer: ENetPacketPeer) -> void:
 
 func _on_client_disconnected(peer: ENetPacketPeer) -> void:
 	print("[SERVER] Cliente desconectado:", peer.get_instance_id())
+
+	account_module.remove_account(peer)
 
 
 func register_handlers(handlers: Array) -> void:
