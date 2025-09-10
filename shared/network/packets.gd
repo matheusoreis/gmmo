@@ -1,0 +1,22 @@
+extends Node
+
+
+enum {
+	PING,
+
+	SIGN_IN,
+	SIGN_UP,
+
+	ACTOR_LIST,
+	CREATE_ACTOR,
+	DELETE_ACTOR,
+	SELECT_ACTOR,
+
+	MAP_DATA,
+	ME_TO_ACTORS,
+
+	MOVE_ACTOR,
+	WARP_ACTOR,
+
+	DISCONNECT,
+}
