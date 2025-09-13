@@ -14,4 +14,6 @@ func _enter_tree() -> void:
 
 
 func _handle(data: Dictionary) -> void:
-	print(data)
+	var username: String = data.get("username", "")
+	var email: String = data.get("email", "")
+	var password: String = data.get("password", "")

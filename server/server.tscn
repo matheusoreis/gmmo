@@ -12,7 +12,7 @@
 
 [node name="Server" type="Node" node_paths=PackedStringArray("database")]
 script = ExtResource("1_pcfvm")
-database = NodePath("Database")
+database = NodePath("")
 
 [node name="Modules" type="Node" parent="."]
 unique_name_in_owner = true
@@ -29,8 +29,9 @@ unique_name_in_owner = true
 [node name="Ping" parent="Handlers" node_paths=PackedStringArray("server") instance=ExtResource("2_0wvpq")]
 server = NodePath("../..")
 
-[node name="SignIn" parent="Handlers" node_paths=PackedStringArray("server") instance=ExtResource("6_87v45")]
+[node name="SignIn" parent="Handlers" node_paths=PackedStringArray("server", "database") instance=ExtResource("6_87v45")]
 server = NodePath("../..")
+database = NodePath("../../Database")
 
 [node name="SignUp" parent="Handlers" node_paths=PackedStringArray("server") instance=ExtResource("7_it51r")]
 server = NodePath("../..")
