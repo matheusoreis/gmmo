@@ -11,6 +11,9 @@ extends Node
 @export var actor_module: ActorModule
 @export var map_module: MapModule
 
+@export_group("Database")
+@export var database: Database
+
 var server: ENetServer
 
 

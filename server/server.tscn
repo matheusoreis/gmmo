@@ -10,8 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://clgjub5ktrdpu" path="res://server/network/handlers/actor_list/actor_list.tscn" id="8_it51r"]
 [ext_resource type="PackedScene" uid="uid://dokwgb7r0esjg" path="res://server/database/database.tscn" id="9_c0gbm"]
 
-[node name="Server" type="Node"]
+[node name="Server" type="Node" node_paths=PackedStringArray("database")]
 script = ExtResource("1_pcfvm")
+database = NodePath("Database")
 
 [node name="Modules" type="Node" parent="."]
 unique_name_in_owner = true
@@ -40,3 +41,5 @@ account_module = NodePath("../../Modules/Account")
 packet_id = 110
 
 [node name="Database" parent="." instance=ExtResource("9_c0gbm")]
+
+[node name="Interface" type="CanvasLayer" parent="."]
