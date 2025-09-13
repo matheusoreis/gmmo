@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://clgjub5ktrdpu"]
+
+[ext_resource type="Script" uid="uid://cpki11x2u403c" path="res://server/network/handlers/actor_list/actor_list.gd" id="1_dnjjk"]
+
+[node name="ActorList" type="Node"]
+script = ExtResource("1_dnjjk")

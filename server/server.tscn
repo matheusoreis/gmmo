@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://2y1pma657yky"]
+[gd_scene load_steps=10 format=3 uid="uid://2y1pma657yky"]
 
 [ext_resource type="Script" uid="uid://dx87dm5qwum7x" path="res://server/server.gd" id="1_pcfvm"]
 [ext_resource type="PackedScene" uid="uid://cbdjw714no2m6" path="res://server/network/handlers/ping/ping.tscn" id="2_0wvpq"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://hn8lfo4xbik7" path="res://server/modules/map/map.tscn" id="5_c0gbm"]
 [ext_resource type="PackedScene" uid="uid://bm2xn0mitymrk" path="res://server/network/handlers/sign_in/sign_in.tscn" id="6_87v45"]
 [ext_resource type="PackedScene" uid="uid://c0u1u3bdff1df" path="res://server/network/handlers/sign_up/sign_up.tscn" id="7_it51r"]
+[ext_resource type="PackedScene" uid="uid://clgjub5ktrdpu" path="res://server/network/handlers/actor_list/actor_list.tscn" id="8_it51r"]
+[ext_resource type="PackedScene" uid="uid://dokwgb7r0esjg" path="res://server/database/database.tscn" id="9_c0gbm"]
 
 [node name="Server" type="Node"]
 script = ExtResource("1_pcfvm")
@@ -31,3 +33,10 @@ server = NodePath("../..")
 
 [node name="SignUp" parent="Handlers" node_paths=PackedStringArray("server") instance=ExtResource("7_it51r")]
 server = NodePath("../..")
+
+[node name="ActorList" parent="Handlers" node_paths=PackedStringArray("server", "account_module") instance=ExtResource("8_it51r")]
+server = NodePath("../..")
+account_module = NodePath("../../Modules/Account")
+packet_id = 110
+
+[node name="Database" parent="." instance=ExtResource("9_c0gbm")]

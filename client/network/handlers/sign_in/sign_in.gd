@@ -9,15 +9,9 @@ func _enter_tree() -> void:
 		return
 
 	client.register_handlers([
-		[Packets.SIGN_IN, _handle_sign_in],
+		[Packets.SIGN_IN, _handle],
 	])
 
 
-func _handle_sign_in(data: Dictionary) -> void:
-	if data.get("success", false):
-		print("[CLIENT] Login realizado com sucesso!")
-		var account = data.get("account", {})
-		print("ID:", account.get("id", -1))
-		print("Username:", account.get("username", ""))
-	else:
-		print("[CLIENT] Falha no login:", data.get("error", "Desconhecido"))
+func _handle(data: Dictionary) -> void:
+	print(data)

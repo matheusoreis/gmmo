@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dewxky5tkaoox"]
+
+[ext_resource type="Script" uid="uid://evngoybempem" path="res://client/network/handlers/create_actor/create_actor.gd" id="1_t0gls"]
+
+[node name="ActorList" type="Node"]
+script = ExtResource("1_t0gls")

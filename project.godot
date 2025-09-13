@@ -18,7 +18,6 @@ config/icon="res://icon.svg"
 [autoload]
 
 Packets="*res://shared/network/packets.gd"
-Database="*res://shared/db.gd"
 
 [rendering]
 

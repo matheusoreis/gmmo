@@ -9,9 +9,9 @@ func _enter_tree() -> void:
 		return
 
 	client.register_handlers([
-		[Packets.PING, _handle_ping]
+		[Packets.PING, _handle],
 	])
 
 
-func _handle_ping(_data: Dictionary) -> void:
-	print("Recebendo ping de servidor!")
+func _handle(data: Dictionary) -> void:
+	print(data)
